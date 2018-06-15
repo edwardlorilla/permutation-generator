@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tool: Permutation Generator</title>
+  
+  
+  
+  
+  
+</head>
+
+<body>
+
+  <div id="bodypadding" style="margin-top:0px !important;">
+  <h1> Tool: Permutation Generator</h1>
+  <div style="width:100%; height:205px; overflow-y:scroll; margin:7px 0px 0px 0px;">
+    <table style="width:100%;">
+      <tr><td style="width:75px; margin-top:0px;">Object 01</td><td><input type="text" id="permobj1" value="" style="width:99%; margin-top:0px;" onkeyup="cnthlite('1');" onpaste="setTimeout('cnthlite(\'1\')',100);" /></td><td style="width:80px; margin-top:0px;"><span id="cnthlite1">&nbsp;1&nbsp;</span></td></tr>
+      <tr><td style="width:75px; margin-top:7px;">Object 02</td><td><input type="text" id="permobj2" value="" style="width:99%; margin-top:7px;" onkeyup="cnthlite('2');" onpaste="setTimeout('cnthlite(\'2\')',100);" /></td><td style="width:80px; margin-top:7px;"><span id="cnthlite2">&nbsp;2&nbsp;</span></td></tr>
+      <tr><td style="width:75px; margin-top:7px;">Object 03</td><td><input type="text" id="permobj3" value="" style="width:99%; margin-top:7px;" onkeyup="cnthlite('3');" onpaste="setTimeout('cnthlite(\'3\')',100);" /></td><td style="width:80px; margin-top:7px;"><span id="cnthlite3">&nbsp;6&nbsp;</span></td></tr>
+      <tr><td style="width:75px; margin-top:7px;">Object 04</td><td><input type="text" id="permobj4" value="" style="width:99%; margin-top:7px;" onkeyup="cnthlite('4');" onpaste="setTimeout('cnthlite(\'4\')',100);" /></td><td style="width:80px; margin-top:7px;"><span id="cnthlite4">&nbsp;24&nbsp;</span></td></tr>
+      <tr><td style="width:75px; margin-top:7px;">Object 05</td><td><input type="text" id="permobj5" value="" style="width:99%; margin-top:7px;" onkeyup="cnthlite('5');" onpaste="setTimeout('cnthlite(\'5\')',100);" /></td><td style="width:80px; margin-top:7px;"><span id="cnthlite5">&nbsp;120&nbsp;</span></td></tr>
+      <tr><td style="width:75px; margin-top:7px;">Object 06</td><td><input type="text" id="permobj6" value="" style="width:99%; margin-top:7px;" onkeyup="cnthlite('6');" onpaste="setTimeout('cnthlite(\'6\')',100);" /></td><td style="width:80px; margin-top:7px;"><span id="cnthlite6">&nbsp;720&nbsp;</span></td></tr>
+      <tr><td style="width:75px; margin-top:7px;">Object 07</td><td><input type="text" id="permobj7" value="" style="width:99%; margin-top:7px;" onkeyup="cnthlite('7');" onpaste="setTimeout('cnthlite(\'7\')',100);" /></td><td style="width:80px; margin-top:7px;"><span id="cnthlite7">&nbsp;5040&nbsp;</span></td></tr>
+      <tr><td style="width:75px; margin-top:7px;">Object 08</td><td><input type="text" id="permobj8" value="" style="width:99%; margin-top:7px;" onkeyup="cnthlite('8');" onpaste="setTimeout('cnthlite(\'8\')',100);" /></td><td style="width:80px; margin-top:7px;"><span id="cnthlite8">&nbsp;40320&nbsp;</span></td></tr>
+      <tr><td style="width:75px; margin-top:7px;">Object 09</td><td><input type="text" id="permobj9" value="" style="width:99%; margin-top:7px;" onkeyup="cnthlite('9');" onpaste="setTimeout('cnthlite(\'9\')',100);" /></td><td style="width:80px; margin-top:7px;"><span id="cnthlite9">&nbsp;362880&nbsp;</span></td></tr>
+      <tr><td style="width:75px; margin:7px 0px 0px 0px;">Object 10</td><td><input type="text" id="permobj10" value="" style="width:99%; margin:7px 0px 0px 0px;" onkeyup="cnthlite('10');" onpaste="setTimeout('cnthlite(\'10\')',100);" /></td><td style="width:80px; margin:7px 0px 0px 0px;"><span id="cnthlite10">&nbsp;3628800&nbsp;</span></td></tr>
+    </table>
+  </div>
+  <div style="padding:7px 0px 0px 0px;">
+    Prefix sets with:
+    <input type="text" id="setprefix" value="" size="4" />
+    Suffix sets with:
+    <input type="text" id="setsuffix" value="" size="4" />
+    Delimit objects with:
+    <input type="text" id="objdelimiter" value="" size="4" />
+    Join sets with:
+    <input type="text" id="objjoin" value="\x" size="4" />
+  </div>
+  <div style="padding:4px 0px 7px 0px;">
+    <input type="button" value="Generate Permutations" onClick="permute();" />&nbsp;
+    <input type="checkbox" id="direct_save" />Direct save.
+    Output wrap is <input type="radio" name="radbtn" onClick="wrapis('output','soft');" />on
+    <input type="radio" name="radbtn" onClick="wrapis('output','off');" CHECKED />off.
+    <input type="button" title="Select All Text" value="S" onClick="SelectAll('output')" />
+    <input type="button" title="Clear All Text" value="C" onClick="cleartext();" />
+  </div>
+  <textarea id="output" style="width:100%;" rows="4" wrap="off">
+    Output Box - Permutations will display here.
+    Enter up to 10 objects to permute into the object input fields above.
+    Objects can be any text from a single letter to whole sentence.
+    Permuted sets can have a prefix and/or suffix added via the prefix/suffix fields.
+    Join objects within each set via the delimit field. Join sets via join field.
+    Entering \x into any field will produce a line break.
+    WARNING: 10 objects will produce 3628800 permutations! Many browsers will display a stop script messages and results will be slow to load.
+    When generating large amounts of permutations check "Direct save." to directly save results as a output file.
+    This will prevent browser lock-up from trying to load large amounts of results into this browser field.
+    Privacy of Data: This tool is built-with and functions-in Client Side JavaScripting, so only your computer will see or process your data input/output.</textarea>
+  <div style="padding:7px 0px 0px 0px; line-height:1.7;">
+    <input type="button" value="Save As" onClick="savefile('no','saveas','output');" />
+    <input type="text" id="saveas" value="output.txt" style="width:90px;" />&nbsp;
+    <input type="radio" name="sfrmt" id="unix" CHECKED />Unix
+    <input type="radio" name="sfrmt" id="dos" />Dos.
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
