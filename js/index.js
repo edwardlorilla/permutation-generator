@@ -49,7 +49,7 @@ function wrapis(boxid, wrapis) {
     area.parentNode.replaceChild(newarea, area);
 }
 
-Array.prototype.map = function(fn) {
+Array.prototype.map = function (fn) {
     var r = [];
     var l = this.length;
     for (i = 0; i < l; i++) {
@@ -60,7 +60,7 @@ Array.prototype.map = function(fn) {
 
 function permute() {
     //+ Jonas Raoni Soares Silva @ http://jsfromhell.com/array/permute
-    var permute = function(v, m) {
+    var permute = function (v, m) {
         for (var p = -1, j, k, f, r, l = v.length, q = 1, i = l + 1; --i; q *= i);
         for (x = [new Array(l), new Array(l), new Array(l), new Array(l)], j = q, k = l + 1, i = -1; ++i < l; x[2][i] = i, x[1][i] = x[0][i] = j /= --k);
         for (r = new Array(q); ++p < q;)
@@ -84,7 +84,7 @@ function permute() {
     var suf = document.getElementById('setsuffix').value.replace(/\\x/g, '\n');
     var joinobjs = document.getElementById('objdelimiter').value.replace(/\\x/g, '\n');
     var joinperms = document.getElementById('objjoin').value.replace(/\\x/g, '\n');
-    var out = permute(perobjs).map(function(objs) {
+    var out = permute(perobjs).map(function (objs) {
         return pre + objs.join(joinobjs) + suf
     });
     out = out.join(joinperms);
@@ -93,7 +93,6 @@ function permute() {
     } else {
         document.getElementById('output').value = out;
     }
-    count_me();
 }
 
 var lastdivnum = 1;
